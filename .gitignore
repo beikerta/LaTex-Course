@@ -3,4 +3,4 @@
 *.log
 *.aux
 gitignore/
-
+*syntex(busy)
