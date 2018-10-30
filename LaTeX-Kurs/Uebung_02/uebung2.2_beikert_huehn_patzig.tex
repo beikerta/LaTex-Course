@@ -1,0 +1,19 @@
+% Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+% pdflatex
+\documentclass{minimal}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, mathtools}
+\usepackage{txfonts} % wird für das Konstrukt benötigt
+% Wahrscheinlich wird er das Konstrukt mehr als einmal benutzen.
+% Darum ist es sinnvoll, einen Befehl dafür zu definieren.
+% Wir nennen den Befehl \wint (von »weird integral« wie »das seltsame Integral« aus der Aufgabenstellung):
+\newcommand{\wint}{\oint\kern-0.475em\varoiintclockwise\kern-1.3em\vec\varoiintctrclockwise}
+
+\begin{document}
+% Das Konstrukt kann in der math-Umgebung mit dem Befehl \wint erzeugt werden.
+\[\wint\]
+\end{document}
