@@ -1,0 +1,30 @@
+%Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+%pdfLaTeX
+\documentclass{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{booktabs, multirow}
+
+\begin{document}
+
+\begin{table}[h]
+\caption{Gemüseangebote nach Saison}
+\label{tab:gemüse}
+\begin{tabular}{llcllr}
+\toprule
+\textbf{Produkt} & \textbf{Herkunft} & \textbf{Saisonbeginn} & \textbf{Saisonende} & \textbf{Handelsklasse} & \textbf{verfügbar} \\ \midrule
+Auberginen & \multirow{2}{*}{Frankreich} & Juli & September & \multirow{2}{*}{I} & \\
+Esskastanien &  &\multicolumn{2}{c}{September} & & \\
+Feldsalat &  \multirow{2}{*}{Deutschland} & Oktober & Februar & II & ja \\
+Kürbis & & August & Dezember & \multirow{2}{*}{I} & ja \\
+Rote Beete & Italien & September & Februar & & ja \\
+Zucchini & Spanien & Juni & \multirow{2}{*}{Oktober} & II & \\
+Zwiebeln & Deutschland & Mai & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
