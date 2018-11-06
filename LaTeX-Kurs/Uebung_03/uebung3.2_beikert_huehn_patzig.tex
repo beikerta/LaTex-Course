@@ -1,0 +1,37 @@
+%Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+%pdfLaTeX
+\documentclass{scrartcl}
+
+
+%Spracheinstellungen
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[default]{droidserif}
+
+%macht eine schöne Tabellenformatierung
+\usepackage{booktabs}
+%macht alles farbig
+\usepackage{color, xcolor,colortbl}
+\definecolor{Gray}{gray}{0.8}
+\newcolumntype{a}{>{\color{white}\columncolor{blue}}l}
+
+\begin{document}
+\begin{table}
+\caption{Eine wichtige Tabelle hat immer eine vielsagende Beschriftung!}
+
+\begin{tabular}{a l}
+\rowcolor{Gray}\color{black}
+Wochentag & Buchstaben \\ 
+Montag & 6\\ 
+Dienstag & 8\\ 
+Mittwoch & 8\\ 
+Donnerstag & 10\\ 
+Freitag & 7\\ 
+Samstag & 7\\ 
+Sonntag & 7\\ 
+
+\end{tabular}
+\end{table}
+
+\end{document}
