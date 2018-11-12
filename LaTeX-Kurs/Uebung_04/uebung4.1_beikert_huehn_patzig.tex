@@ -7,6 +7,7 @@
 \usepackage[T1]{fontenc}
 
 \usepackage{booktabs}
+\usepackage{siunitx}
 
 \begin{document}
 
@@ -16,12 +17,13 @@
 \centering
 \caption{Kalorienübersicht}
 \label{tab:kalorien}
-\begin{tabular}{lll}
+\begin{tabular}{r l S[separate-uncertainty]}
 \toprule
-\textbf{Uhrzeit} & \textbf{Speise} \\ \midrule
-\zeit{09}{00} & Zimtsterne und Vanillekipferl \\
-\zeit{13}{00} & Schokoladen-Eierlikör-Torte \\
-\zeit{19}{00} & Schweinegulasch mit Bratkartoffeln \\
+\textbf{Uhrzeit} & \textbf{Speise} & \textbf{Brennwert [\si{\kilo\joule}]} \\ 
+\midrule
+\zeit{09}{00} & Zimtsterne und Vanillekipferl & 2327(3)\\
+\zeit{13}{00} & Schokoladen-Eierlikör-Torte  & 1025(10)\\
+\zeit{19}{00} & Schweinegulasch mit Bratkartoffeln & 109(8) \\
 \end{tabular}
 \end{table}
 
