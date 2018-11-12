@@ -1,0 +1,28 @@
+%Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+%pdfLaTeX
+\documentclass{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+\newcommand{\zeit}[2]{ #1:#2}
+
+\begin{table}
+\centering
+\caption{Kalorienübersicht}
+\label{tab:kalorien}
+\begin{tabular}{lll}
+\toprule
+\textbf{Uhrzeit} & \textbf{Speise} \\ \midrule
+\zeit{09}{00} & Zimtsterne und Vanillekipferl \\
+\zeit{13}{00} & Schokoladen-Eierlikör-Torte \\
+\zeit{19}{00} & Schweinegulasch mit Bratkartoffeln \\
+\end{tabular}
+\end{table}
+
+\end{document}
