@@ -1,0 +1,44 @@
+% Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+% pdfLaTeX
+\documentclass{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage[margin=12pt]{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{mindmap, trees}
+\begin{document}
+\begin{tikzpicture}
+[level/.append style={level 1/.append style={sibling angle=90}}]
+\path [mindmap,concept color=orange,text=white]
+node[concept] {Bier}
+[clockwise from=90]
+child[concept color=white!50!yellow,text=black] {
+	node[concept] {obergärig}
+	[clockwise from=180]
+	child { node[concept] {Alt} }
+	child { node[concept] {Kölsch} }
+	child { node[concept] {Porter} }
+	child { node[concept] {Weizen} }
+}
+child[concept color=red!50!orange] {
+	node[concept] {spontangärig}
+	[clockwise from=60]
+	child { node[concept] {Geuze} }
+	child { node[concept] {Kriek} }
+	child { node[concept] {Lambic} }
+}
+child[concept color=brown!50!black] {
+	node[concept] {untergärig}
+	[clockwise from=-30]
+	child { node[concept] {Helles} }
+	child { node[concept] {Märzen} }
+	child { node[concept] {Pils} }
+}
+;
+\end{tikzpicture}
+	
+\end{document}
