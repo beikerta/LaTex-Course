@@ -1,0 +1,40 @@
+%Alexandra Beikert, León-Alexander Hühn, Leon Patzig
+%pdfLaTeX
+\documentclass{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pgfplots}
+
+\begin{document}
+\pgfplotsset{width=10cm, compat=1.16}
+
+\begin{tikzpicture}
+\begin{axis}[
+ybar,
+legend style={at={(0.5,-0.2)},
+anchor=north,legend columns=1},
+nodes near coords,
+nodes near coords align={vertical},
+symbolic x coords={furchtbar,meh,ganz gut, genial, keine Ang},
+ylabel=Anzahl Befragte
+]
+\addplot coordinates {
+(furchtbar,9) (meh,1) (ganz gut,28)
+(genial,186) (keine Ang,0)
+};
+\addplot coordinates {
+(furchtbar,32) (meh,63) (ganz gut,52)
+(genial,49) (keine Ang,2)
+};
+\addplot coordinates {
+(furchtbar,28) (meh,17) (ganz gut,12)
+(genial,26) (keine Ang,115)
+};
+\legend{Wie finden Sie Himbeereis?,Mögen Sie Tanzen?,Was halten Sie von Topfpflanzen?}
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
