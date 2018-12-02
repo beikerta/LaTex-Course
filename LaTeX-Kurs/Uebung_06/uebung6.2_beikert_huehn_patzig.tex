@@ -12,7 +12,7 @@
 
 
 \usepackage{pgfplotstable}
-\usepackage{gnuplottex}%[miktex]%[shell]
+\usepackage{gnuplottex}
 
 
 
@@ -22,21 +22,32 @@
 
 
 \begin{tikzpicture}
-\begin{axis}[title=Zerfallsprozess, xlabel=Zeit, ylabel=Zerfälle]
+\begin{axis}[title=Zerfallsprozess, xlabel={Zeit [s]}, ylabel=Zerfälle]
 \addplot+[only marks,
+mark=.,
 error bars/.cd,
 y dir=both, y explicit,]
 table
 [x=zeit, y=zerfaelle, y error=zerfaelle_err]
 {06_messwerte.dat};
 
-\addplot [no markers, red] gnuplot [raw gnuplot] { % "raw gnuplot" lässt uns direkt auf gnuplot zugreifen
-          f(x) = a*exp(b*x)+c; % Definiere die Funktion zum fitten
-            b=0.00001; % Setze b auf einen kleinen Wert, um floating-point infinity am Anfang und somit NaN im Algorithmus zu vermeiden
-            fit f(x) '06_messwerte.dat' using 1:2:3 yerrors via a,b,c; % Wähle die Funktion, Messdaten und Variablen
-            plot [x=50:600] f(x); % Wähle Plotgröße, plotte
-  
+\IfFileExists{fit.par} {
+\addplot [no markers, red, raw gnuplot] gnuplot { % "raw gnuplot" lässt uns direkt auf gnuplot zugreifen
+            f(x) = a*exp(b*x)+c; % Definiere die Funktion zum fitten
+            a=system('awk ''{print $1}'' fit.par');
+            b=system('awk ''{print $2}'' fit.par'); %Lese parameter ein (Setzt UNIX System bzw System mit awk voraus)
+            c=system('awk ''{print $3}'' fit.par');
+            plot [x=0:600] f(x); % Wähle Plotgröße, plotte
 };
+}{
+\addplot [no markers, red, raw gnuplot] gnuplot { % "raw gnuplot" lässt uns direkt auf gnuplot zugreifen
+           f(x) = a*exp(b*x)+c; % Definiere die Funktion zum fitten
+           b=0.00001; % Setze b auf einen kleinen Wert, um floating-point infinity am Anfang und somit NaN im Algorithmus zu vermeiden
+           fit f(x) '06_messwerte.dat' using 1:2:3 yerrors via a,b,c; % Wähle die Funktion, Messdaten und Variablen
+           plot [x=0:600] f(x); % Wähle Plotgröße, plotte
+           set print 'fit.par';
+           print a,b,c;
+};}
 
 
 \end{axis}
