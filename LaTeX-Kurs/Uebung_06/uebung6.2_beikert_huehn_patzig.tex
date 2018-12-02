@@ -30,13 +30,11 @@ table
 [x=zeit, y=zerfaelle, y error=zerfaelle_err]
 {06_messwerte.dat};
 
-\addplot [no markers, red] gnuplot [raw gnuplot] { % "raw gnuplot" allows us to use arbitrary gnuplot commands
-         f(x) = a*exp(b*x); % Define the function to fit
-            a=1; b=-0.001; % Set reasonable starting values here
-            fit f(x) '06_messwerte.dat' u 1:2:3 via a,b; % Select the file, the columns (indexing starts at 1) and the variables
-            plot [x=50:600] f(x); % Specify the range to plot    
-     	  set print "parameters.dat";  % Open a file to save the parameters
-            print a, b;                  % Write the parameters to file
+\addplot [no markers, red] gnuplot [raw gnuplot] { % "raw gnuplot" lässt uns direkt auf gnuplot zugreifen
+          f(x) = a*exp(b*x)+c; % Definiere die Funktion zum fitten
+            b=0.00001; % Setze b auf einen kleinen Wert, um floating-point infinity am Anfang und somit NaN im Algorithmus zu vermeiden
+            fit f(x) '06_messwerte.dat' using 1:2:3 yerrors via a,b,c; % Wähle die Funktion, Messdaten und Variablen
+            plot [x=50:600] f(x); % Wähle Plotgröße, plotte
   
 };
 
