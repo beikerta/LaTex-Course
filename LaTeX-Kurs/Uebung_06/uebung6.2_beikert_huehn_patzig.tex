@@ -9,19 +9,56 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 
+%\usepackage{siunitx}
+\usepackage{filecontents}
+
+\usepackage{pgfplotstable}
+\usepackage{gnuplottex}%[miktex]%[shell]
+
 
 
 
 \begin{document}
 
+\begin{filecontents}{data.csv}
+X     Y   
+2   275.68
+3   1175.26
+4   1351.60
+5   1485.57
+6   1583.30
+7   1861.28
+8   2095.39
+9   2574.54
+10  2841.74
+11  2914.16
+12  3965.12
+13  3787.68
+14  5294.83
+21  10504.49
+    };
+\end{filecontents}
+
 \begin{tikzpicture}
 \begin{axis}[title=Zerfallsprozess, xlabel=Zeit, ylabel=Zerfälle]
-\addplot+[no markers,
+\addplot+[only marks,
 error bars/.cd,
 y dir=both, y explicit,]
 table
 [x=zeit, y=zerfaelle, y error=zerfaelle_err]
 {06_messwerte.dat};
+
+\addplot [no markers, red] gnuplot [raw gnuplot] { % "raw gnuplot" allows us to use arbitrary gnuplot commands
+         f(x) = a*exp(b*x); % Define the function to fit
+            a=1; b=-0.001; % Set reasonable starting values here
+            fit f(x) '06_messwerte.dat' u 1:2:3 via a,b; % Select the file, the columns (indexing starts at 1) and the variables
+            plot [x=50:600] f(x); % Specify the range to plot    
+     	  set print "parameters.dat";  % Open a file to save the parameters
+            print a, b;                  % Write the parameters to file
+  
+};
+
+
 \end{axis}
 \end{tikzpicture}
 
