@@ -1,5 +1,5 @@
 % Alexandra Beikert, León-Alexander Hühn, Leon Patzig
-% pdfLaTeX
+% pdfLaTeX -shell-escape
 \documentclass{scrartcl}
 
 \usepackage[ngerman]{babel}
@@ -45,7 +45,7 @@ table
            b=0.00001; % Setze b auf einen kleinen Wert, um floating-point infinity am Anfang und somit NaN im Algorithmus zu vermeiden
            fit f(x) '06_messwerte.dat' using 1:2:3 yerrors via a,b,c; % Wähle die Funktion, Messdaten und Variablen
            plot [x=0:600] f(x); % Wähle Plotgröße, plotte
-           set print 'fit.par';
+           set print 'fit.par'; %Speichere errechnete Parameter
            print a,b,c;
 };}
 
