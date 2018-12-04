@@ -1,0 +1,29 @@
+% !TEX root=../main.tex
+% !TEX program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !TEX spellcheck = de_DE
+\setchapterpreamble[o]{\dictum[U.\,R. Heber]{Ein schlauer Spruch bereichtert den Kapitelanfang.}}
+
+\chapter{Ein weiteres Kapitel}
+
+\begin{figure}[h]
+  \fbox{I am a picture, introducing this chapter!}
+  \caption{Bildunterschrift}
+  \label{fig:introduction}
+\end{figure}
+
+\index{Blindtext}
+\Blindtext\footnote{Man beachte auch, dass $\sin(x\pm y) = \sin(x)\cos(y) \pm \cos(x)\sin(y)$}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccc}
+  \toprule
+  eins & zwei & drei\\
+  vier & fünf & sechs\\
+  sieben & acht & neun\\
+  \bottomrule
+  \end{tabular}
+  \caption{Eine Tabelle mit neun Einträgen}
+  \label{tab:tabelle3}
+\end{table}
