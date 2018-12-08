@@ -7,16 +7,44 @@
 \input{header.tex}
 
 \begin{document}
+% Vorgabe: Leerseite
+\quad\thispagestyle{empty}\newpage
+% https://www.informatik.uni-heidelberg.de/images/perSemester/Formulare/Leitfaden-zur-Erstellung-der-Bachelorarbeit.pdf
+% In diesem Leitfaden ist unter Anlage 1 (S. 6) eine Vorlage für die Titelseite enthalten.
+% Da jedoch in selbigem Leitfaden geboten wird, »auf ein vernünftiges Layout« (S. 3) zu achten, betrachten wir
+% Anlage 1 nur als Orientierungshilfe, alle wichtigen Informationen auf die Titelseite zu bringen.
+% Auch halten wir es nicht für sinnvoll, Name, Matrikelnummer, Betreuer und Datum der Abgabe mit diesen Begriffen und
+% einem vorangestellten Doppelpunkt in der vorgeschlagenen Form aufzulisten.
+% Im Beispiel erhält auch der Titel der Bachelorarbeit viel zu wenig Aufmerksamkeit, weshalb hier eine größere
+% Schriftgröße gewählt wird.
+\titlehead{Ruprecht-Karls-Universität Heidelberg\\
+Fakultät für Mathematik und Informatik\\
+Institut für Informatik}
+\subject{keine Bachelorarbeit}
+\title{\Large
+	Messbarkeit quantentypografischer Phänomene in Bachelorarbeiten\\
+	Measurability of Quantum Typographical Phenomena in Bachelor Theses
+}
+\author{Hinz U. Kunz\\
+\small Matrikelnummer: 5000042}
+\publishers{nicht betreut durch Prof.\,Dr.\,max.\,mus. Termann}
+\date{2. November 2048}
+\extratitle{\centering Quantentypografie in Bachelorarbeiten}
+
+\maketitle
+\tableofcontents
 
 \begin{abstract}
 Dieses Dokument dient der Übung des Satzes von umfangreichen Projekten in \LaTeX\index{LaTeX@\LaTeX}. Es gehört zum siebten Übungszettel des \LaTeX-Kurses im Wintersemester 2018\,/\,19. Inhaltlich hat es so ziemlich nichts zu bieten, es könnte aber interessant sein, sich den zugehörigen Sourcecode mal anzusehen, da er eine Menge interessanter \LaTeX-Kommandos enthält.
 \end{abstract}
-
 
 \include{Kapitel/chapter1}
 \include{Kapitel/chapter2}
 \include{Kapitel/chapter3}
 \include{Kapitel/chapter4}
 
+%\appendix
+\listoffigures
+\listoftables
 
 \end{document}
