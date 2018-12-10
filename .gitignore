@@ -2,5 +2,11 @@
 *.gz
 *.log
 *.aux
-gitignore/
-*synctex(busy)
+*.synctex(busy)
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.run.xml
