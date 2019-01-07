@@ -3,10 +3,64 @@
 \documentclass{beamer}
 \usepackage{polyglossia}
 \setmainlanguage[spelling=new, babelshorthands=true]{german}
+\usepackage{amsmath}
+\usepackage{showexpl}
+\usetheme{CambridgeUS}
+\usecolortheme{seagull}
+\beamertemplatenavigationsymbolsempty
+\title{Matrizen}
+\author{Beikert, Hühn, Patzig}
 \begin{document}
-\begin{frame}{Matrizen in \latex}{Die Anleitung}
+\frame{\titlepage}
+\begin{frame}{Matrizen in \LaTeX}{Die Anleitung}
 \tableofcontents
 \end{frame}
-\begin{frame}
+\section{Typen von Matrizen}
+\begin{frame}[fragile]{Matrizen in AMSmath}{Typen von Matrizen}
+\begin{itemize}
+\item Es gibt insgesamt 6 Matrixumgebungen im amsmath Packet
+	\begin{itemize}
+	\item<+-> \texttt{matrix}
+	\item<+->  \texttt{pmatrix}
+	\item<+->  \texttt{bmatrix}
+	\item<+->  \texttt{Bmatrix}
+	\item<+->  \texttt{vmatrix}
+	\item<+->  \texttt{Vmatrix}
+	\end{itemize}
+\item Die Umgebungen haben verschiedene Klammerstile
+\item Sie müssen im Mathemodus gesetzt werden
+\item<+->  Mit \verb|\dots|-Befehlen können verschiedene Punkte gesetzt werden
+\end{itemize}
+\end{frame}
+\section{Die Umgebungen}
+\begin{frame}[fragile]{Die Umgebungen}{Verschiedene Klammerstile}
+\begin{itemize}
+\item<+-> Die Standartumgebung \texttt{matrix} setzt keine Klammern
+	\begin{itemize}
+	\item<+->  Mit \verb|\left| und \verb|\right| können eigene Klammern gesetzt werden
+	\end{itemize}
+\item<+->  \texttt{pmatrix} Setzt runde Klammern
+	\begin{itemize}
+	\item<+->  Auch für Vektoren geeignet
+	\end{itemize}
+\item<+->  \texttt{bmatrix} setzt eckige Klammern, \texttt{Bmatrix} geschweifte Klammern
+\item<+->  \texttt{vmatrix} setzt gerade Striche, \texttt{Vmatrix} zwei gerade Striche
+\end{itemize}
+\end{frame}
+\section{Ein Beispiel}
+\begin{frame}[fragile]{Ein Beispiel}
+\begin{LTXexample}
+% In der Präämbel
+\usepackage{amsmath}
+% Im Dokument
+\[
+\begin{pmatrix}
+a & b & c & \hdots & z \\
+b & c & \hdots & z & a\\
+\vdots &&\ddots&& \vdots \\
+z & a & \hdotsfor{3}
+\end{pmatrix}
+\]
+\end{LTXexample}
 \end{frame}
 \end{document}
